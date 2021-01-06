@@ -15,7 +15,7 @@ export type BookType = {
   id: string;
   img: string;
   title: string;
-  authors: [string] | string;
+  authors: [string];
   shelf: ShelfType;
 };
 
@@ -35,7 +35,7 @@ class BookReducer extends ImmerReducer<InitialStateType> {
     this.draftState.searchResults = books;
   }
   updateBook(book: BookType, changes: any) {
-    let currBook = this.state.bookList.find((b) => b.title === book.title);
+    let currBook = this.state.bookList.find((b) => b.id === book.id);
     if (currBook) {
       let i = this.state.bookList.indexOf(currBook);
       this.draftState.bookList[i] = book;
