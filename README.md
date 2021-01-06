@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+## My Reads 
+Udacity React Nanodegree first project.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+using this app you can have your own library of books with 3 shleves.
+- Currently Reading.
+- Want to Read.
+- Read.
+
+you can movwe books between shelves. or add new books to your reads.
+
+
+
+
 
 ## Available Scripts
 
