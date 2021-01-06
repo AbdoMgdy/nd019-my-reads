@@ -1,5 +1,5 @@
 import { Box, Select } from "@chakra-ui/react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { update } from "../../BooksAPI";
 import { BookContext } from "../../store/rootContext";
 import { ShelfType, actions, BookType } from "../../store/rootReducer";
@@ -7,11 +7,13 @@ import { ShelfType, actions, BookType } from "../../store/rootReducer";
 function Card(props: BookType) {
   const { title, img, authors } = props;
   const { dispatch } = useContext(BookContext);
+  const [currShelf, setCurrShelf] = useState(props.shelf);
   const changeShelf = (shelf: ShelfType) => {
     dispatch(actions.changeShelf(props.id, shelf));
     update(props, ShelfType[shelf]).then((res) => {
       console.log(res);
     });
+    setCurrShelf(shelf);
   };
   return (
     <div>
@@ -36,20 +38,19 @@ function Card(props: BookType) {
             alignItems="center"
           >
             <Box as="span" ml="2" color="gray.600" fontSize="sm">
-              {typeof authors === "string" ? (
-                <p key={authors}>{authors}</p>
-              ) : (
-                authors.map((author) => <p key={author}>{author}</p>)
-              )}
+              {authors && authors.map((author) => <p key={author}>{author}</p>)}
             </Box>
             <Box fontSize="sm">
               <Select
-                placeholder="Choose Shelf"
                 size="sm"
+                value={currShelf}
                 onChange={(e) => {
                   changeShelf(parseInt(e.target.value));
                 }}
               >
+                <option value="" disabled>
+                  Choose Shelf
+                </option>
                 <option value={ShelfType.currentlyReading}>
                   Currently Reading
                 </option>
