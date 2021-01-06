@@ -6,7 +6,7 @@ using this app you can have your own library of books with 3 shleves.
 - Want to Read.
 - Read.
 
-you can movwe books between shelves. or add new books to your reads.
+you can move books between shelves. or add new books to your reads.
 
 
 
