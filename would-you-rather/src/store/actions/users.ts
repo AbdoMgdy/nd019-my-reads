@@ -1,9 +1,9 @@
 import { IQuestion, IUsers } from "./../types";
 
 export enum UsersActionsTypes {
-  RECEIVE_USERS,
-  ADD_ANSWER_TO_USER,
-  ADD_QUESTION_TO_USER,
+  RECEIVE_USERS = "RECEIVE_USERS",
+  ADD_ANSWER_TO_USER = "ADD_ANSWER_TO_USER",
+  ADD_QUESTION_TO_USER = "ADD_QUESTION_TO_USER",
 }
 
 export interface IReceiveUsersAction {

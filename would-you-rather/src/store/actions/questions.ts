@@ -1,8 +1,8 @@
 import { IQuesions, IQuestion } from "./../types";
 export enum QuestionsActionTypes {
-  RECEIVE_QUESTIONS,
-  ADD_ANSWER_TO_QUESTION,
-  ADD_QUESTION,
+  RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS ",
+  ADD_ANSWER_TO_QUESTION = "ADD_ANSWER_TO_QUESTION ",
+  ADD_QUESTION = "ADD_QUESTION ",
 }
 
 export interface IReceivQuestionsAction {
@@ -24,7 +24,7 @@ export interface IAddQuestionAction {
   payload: IQuestion;
 }
 
-export const reveiveQuestions = (
+export const receiveQuestions = (
   payload: IQuesions
 ): IReceivQuestionsAction => {
   return {

@@ -2,7 +2,10 @@ import { QuestionActions, QuestionsActionTypes } from "./../actions/questions";
 import produce from "immer";
 import { IQuesions } from "../types";
 
-const initialQuestionsState: IQuesions = {};
+export const initialQuestionsState: IQuesions = {};
+// getInitialData().then((res) => {
+//   initialQuestionsState = res.questions;
+// });
 const questions = (
   state: IQuesions = initialQuestionsState,
   action: QuestionActions
@@ -21,6 +24,6 @@ const questions = (
       case QuestionsActionTypes.ADD_QUESTION:
         draft[action.payload.qid] = action.payload;
     }
-  }, {});
+  });
 
 export default questions;

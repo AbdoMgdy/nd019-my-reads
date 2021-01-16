@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Menu, Typography } from "antd";
-import PollCard from "../card";
+import PollCard from "../PollCard";
 interface MainLayoutProps {
   children: any;
 }

@@ -5,7 +5,7 @@ import { IUsers } from "../types";
 export const initialUsersState: IUsers = {};
 
 const users = (state: IUsers = initialUsersState, action: UsersActions) =>
-  produce((draft, action) => {
+  produce((state, draft) => {
     switch (action.type) {
       case UsersActionsTypes.RECEIVE_USERS:
         draft = action.payload;

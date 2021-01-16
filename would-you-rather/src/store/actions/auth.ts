@@ -1,23 +1,23 @@
 export enum AuthActionTypes {
-  Login,
-  Logout,
+  LOGIN = "LOGIN",
+  LOGOUT = "LOGOUT",
 }
 export interface ILoginAction {
-  type: AuthActionTypes.Login;
+  type: AuthActionTypes.LOGIN;
   payload: string;
 }
 export interface ILogoutAction {
-  type: AuthActionTypes.Logout;
+  type: AuthActionTypes.LOGOUT;
 }
 export const login = (payload: string): ILoginAction => {
   return {
-    type: AuthActionTypes.Login,
+    type: AuthActionTypes.LOGIN,
     payload,
   };
 };
 export const logout = (): ILogoutAction => {
   return {
-    type: AuthActionTypes.Logout,
+    type: AuthActionTypes.LOGOUT,
   };
 };
 

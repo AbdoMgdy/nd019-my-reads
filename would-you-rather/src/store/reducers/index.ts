@@ -1,11 +1,18 @@
 import { combineReducers } from "redux";
 
-import users from "./users";
-import quesions from "./questions";
+import users, { initialUsersState } from "./users";
+import questions, { initialQuestionsState } from "./questions";
 import auth from "./auth";
 
+export const initialState = {
+  users: initialUsersState,
+  questions: initialQuestionsState,
+  auth: "",
+};
+
+console.log(questions);
 export default combineReducers({
-  quesions,
+  questions,
   users,
   auth,
 });

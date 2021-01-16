@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import { useStore } from "react-redux";
 import "./App.css";
-import PollCard from "./components/card";
+import PollCard from "./components/PollCard";
 import MainLayout from "./components/layout";
 import Login from "./components/login";
-import { handleInitialData } from "./store/actions/shared";
+import { receiveQuestions } from "./store/actions/questions";
+import { getInitialData } from "./utils/api";
 function App() {
   const { getState, dispatch } = useStore();
   useEffect(() => {
-    handleInitialData(dispatch);
-    console.log(getState());
+    getInitialData().then((res) => {
+      console.log(res);
+      dispatch(receiveQuestions(res.questions));
+    });
   }, [dispatch, getState]);
   return (
     <div className="App">
