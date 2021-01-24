@@ -14,7 +14,7 @@ const Login = () => {
     console.log(state);
   };
   return (
-    <div style={{ padding: "10rem" }}>
+    <div style={{ padding: "5rem" }}>
       <Card
         title="Welcome to Would you Rather ?"
         type="inner"
