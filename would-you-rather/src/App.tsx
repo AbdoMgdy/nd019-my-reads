@@ -1,32 +1,25 @@
 import React, { useEffect } from "react";
-import { useStore } from "react-redux";
+import { useSelector, useStore } from "react-redux";
 import "./App.css";
 import MainLayout from "./components/layout";
-import Login from "./components/login";
 import { receiveQuestions } from "./store/actions/questions";
 import { getInitialData } from "./utils/api";
-import PollTabs from "./components/Tabs";
-import ScoreBoardCard from "./components/ScoreCard";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import NewPollCard from "./components/NewPollCard";
+import { useRoutes } from "react-router-dom";
+import { receiveUsers } from "./store/actions/users";
+import routes from "./routes";
 function App() {
+  const auth = useSelector((state: any) => state.auth);
   const { getState, dispatch } = useStore();
   useEffect(() => {
     getInitialData().then((res) => {
-      console.log(res);
       dispatch(receiveQuestions(res.questions));
+      dispatch(receiveUsers(res.users));
     });
   }, [dispatch, getState]);
+  const routing = useRoutes(routes(auth));
   return (
     <div className="App">
-      <Router>
-        <MainLayout>
-          <Route exact path="/" component={PollTabs} />
-          <Route path="/login" component={Login} />
-          <Route exact path="/new" component={NewPollCard} />
-          <Route exact path="/leaderboard" component={ScoreBoardCard} />
-        </MainLayout>
-      </Router>
+      <MainLayout>{routing}</MainLayout>
     </div>
   );
 }
