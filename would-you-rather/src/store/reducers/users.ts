@@ -1,15 +1,14 @@
 import { UsersActions, UsersActionsTypes } from "./../actions/users";
-import produce from "immer";
+import { produce } from "immer";
 import { IUsers } from "../types";
 
 export const initialUsersState: IUsers = {};
 
 const users = (state: IUsers = initialUsersState, action: UsersActions) =>
-  produce((state, draft) => {
+  produce(state, (draft: IUsers) => {
     switch (action.type) {
       case UsersActionsTypes.RECEIVE_USERS:
-        draft = action.payload;
-        break;
+        return action.payload;
 
       case UsersActionsTypes.ADD_ANSWER_TO_USER:
         draft[action.payload.user].answers[action.payload.question] =

@@ -1,26 +1,14 @@
 import { AuthActions, AuthActionTypes } from "./../actions/auth";
-import produce from "immer";
+import { produce } from "immer";
 
 const auth = (state: string = "", action: AuthActions) =>
-  produce((state: string, draft: string) => {
+  produce(state, (draft: string) => {
     switch (action.type) {
       case AuthActionTypes.LOGIN:
-        draft = action.payload;
-        break;
+        return action.payload;
       case AuthActionTypes.LOGOUT:
-        draft = "";
+        return "";
     }
-  }, {});
-
-
-
-  
-export const nS = (state: any, value: any) => {
-  return produce((state, draft) => {
-    draft.user = value;
-    console.log(state, draft);
-    return draft;
   });
-};
 
 export default auth;
