@@ -7,10 +7,10 @@ import {
 
 export async function getInitialData() {
   const [users, questions] = await Promise.all([_getUsers(), _getQuestions()]);
-  return ({
+  return {
     users,
     questions,
-  });
+  };
 }
 
 export function saveQuestion(question: any) {
@@ -18,6 +18,5 @@ export function saveQuestion(question: any) {
 }
 
 export function saveQuestionAnswer(authUser: any, qid: any, answer: any) {
-  // console.log('info', { authUser, qid, answer });
   return _saveQuestionAnswer({ authUser, qid, answer });
 }

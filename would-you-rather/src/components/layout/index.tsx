@@ -16,7 +16,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
   useEffect(() => {
     setUser(state);
   }, [state]);
-  console.log("userName", user.name);
   const logoutUser = () => {
     dispatch(logout());
   };

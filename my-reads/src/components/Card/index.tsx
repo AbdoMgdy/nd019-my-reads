@@ -10,9 +10,7 @@ function Card(props: BookType) {
   const [currShelf, setCurrShelf] = useState(props.shelf);
   const changeShelf = (shelf: ShelfType) => {
     dispatch(actions.changeShelf(props.id, shelf));
-    update(props, ShelfType[shelf]).then((res) => {
-      console.log(res);
-    });
+    update(props, ShelfType[shelf]).then((res) => {});
     setCurrShelf(shelf);
   };
   return (

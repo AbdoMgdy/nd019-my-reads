@@ -19,7 +19,6 @@ const Search = () => {
   const getSearchResutls = (query: String) => {
     if (query !== "") {
       search(query).then(async (res) => {
-        console.log(res);
         try {
           let books = res.map((b: any) => {
             let currBook = state.bookList.find((cb) => cb.id === b.id);

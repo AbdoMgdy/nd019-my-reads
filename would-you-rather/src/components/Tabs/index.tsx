@@ -23,8 +23,6 @@ const test = {
 function PollTabs() {
   const questions: IQuesions = useSelector((state: any) => state.questions);
   const auth: IUser = useSelector((state: any) => state.auth);
-  console.log(auth);
-  console.log(questions);
   const filteredQuestions = () => {
     let answeredQuestions = [];
     let unAnsweredQuestions = [];

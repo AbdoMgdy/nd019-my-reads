@@ -10,7 +10,6 @@ export const initialState = {
   auth: "",
 };
 
-console.log(questions);
 export default combineReducers({
   questions,
   users,

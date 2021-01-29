@@ -20,7 +20,6 @@ const StateProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     getAll().then((res) => {
-      console.log(res);
       let books = res.map((book: any) => {
         let shelf = book.shelf;
         return {
