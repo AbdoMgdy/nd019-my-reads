@@ -12,7 +12,7 @@ const users = (state: IUsers = initialUsersState, action: UsersActions) =>
 
       case UsersActionsTypes.ADD_ANSWER_TO_USER:
         draft[action.payload.user].answers[action.payload.question] =
-          action.payload.question;
+          action.payload.answer;
         break;
 
       case UsersActionsTypes.ADD_QUESTION_TO_USER:
