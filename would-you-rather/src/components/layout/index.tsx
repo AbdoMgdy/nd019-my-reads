@@ -1,14 +1,25 @@
-import React from "react";
-import { Layout, Menu, Typography } from "antd";
+import React, { useState, useEffect } from "react";
+import { Button, Layout, Menu, Typography } from "antd";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../store/actions/auth";
 interface MainLayoutProps {
   children: any;
 }
-
 const { Sider, Header, Content } = Layout;
 const { Title } = Typography;
 
 export default function MainLayout({ children }: MainLayoutProps) {
+  const [user, setUser] = useState({ name: "", avatarURL: "" });
+  const dispatch = useDispatch();
+  const state = useSelector((state: any) => state.auth);
+  useEffect(() => {
+    setUser(state);
+  }, [state]);
+  console.log("userName", user.name);
+  const logoutUser = () => {
+    dispatch(logout());
+  };
   return (
     <Layout style={{ height: "100%" }}>
       <Sider style={{ padding: "3.75rem 0" }}>
@@ -17,11 +28,28 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item key={2}>
-            <Link to="/new">New Poll</Link>
+            <Link to="/app/new">New Poll</Link>
           </Menu.Item>
           <Menu.Item key={3}>
-            <Link to="/leaderboard">Leaderboard</Link>
+            <Link to="/app/leaderboard">Leaderboard</Link>
           </Menu.Item>
+          {user.name ? (
+            <>
+              <Menu.Item key={4}>
+                <img
+                  src={user.avatarURL}
+                  style={{ width: "25px", marginRight: "8px" }}
+                  alt=""
+                />
+                {user.name}
+              </Menu.Item>
+              <Menu.Item key={5}>
+                <Button type="primary" onClick={() => logoutUser()}>
+                  Logout
+                </Button>
+              </Menu.Item>
+            </>
+          ) : null}
         </Menu>
       </Sider>
       <Layout>
