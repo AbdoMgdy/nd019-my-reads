@@ -1,28 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Tabs, Space } from "antd";
 import PollCard from "../PollCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IQuesions, IUser } from "../../store/types";
+import { login } from "../../store/actions/auth";
 
 const { TabPane } = Tabs;
 
-const test = {
-  id: "xj352vofupe1dqz9emx13r",
-  author: "joeylene",
-  timestamp: 1493579767190,
-  optionOne: {
-    votes: ["joeylene"],
-    text: "write JavaScript",
-  },
-  optionTwo: {
-    votes: ["ifenna"],
-    text: "write Swift",
-  },
-};
 function PollTabs() {
   const questions: IQuesions = useSelector((state: any) => state.questions);
+  const dispatch = useDispatch();
+  const users = useSelector((state: any) => state.users);
   const auth: IUser = useSelector((state: any) => state.auth);
+  useEffect(() => {
+    dispatch(login(users[auth.id]));
+  }, [users, auth.id, dispatch]);
   const filteredQuestions = () => {
     let answeredQuestions = [];
     let unAnsweredQuestions = [];
@@ -44,14 +37,14 @@ function PollTabs() {
       <TabPane tab="Unanswered" key="1">
         <Space direction="vertical">
           {qList.unAnsweredQuestions.map((q) => (
-            <PollCard key={q.id} question={q} mode="view" />
+            <PollCard key={q.id} question={q} mode="answer" />
           ))}
         </Space>
       </TabPane>
       <TabPane tab="Answered" key="2">
         <Space direction="vertical">
           {qList.answeredQuestions.map((q) => (
-            <PollCard key={q.id} question={q} mode="result" />
+            <PollCard key={q.id} question={q} mode="view" />
           ))}
         </Space>
       </TabPane>
