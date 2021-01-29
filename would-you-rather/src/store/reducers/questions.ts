@@ -15,6 +15,7 @@ const questions = (
         draft[action.payload.qid][action.payload.option].votes.push(
           action.payload.answer
         );
+        console.log(draft);
         break;
       case QuestionsActionTypes.ADD_QUESTION:
         draft[action.payload.qid] = action.payload;
