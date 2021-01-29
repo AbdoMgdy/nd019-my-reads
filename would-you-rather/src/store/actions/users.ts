@@ -16,6 +16,7 @@ export interface IAddAnswerToUser {
   payload: {
     user: string;
     question: string;
+    answer: string;
   };
 }
 
@@ -33,6 +34,7 @@ export const receiveUsers = (payload: IUsers): IReceiveUsersAction => {
 export const addAnswerToUser = (payload: {
   question: string;
   user: string;
+  answer: string;
 }): IAddAnswerToUser => {
   return {
     type: UsersActionsTypes.ADD_ANSWER_TO_USER,
