@@ -1,19 +1,18 @@
 import { Typography, Select, Button, Card } from "antd";
 import React, { useState, useEffect } from "react";
-import { useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/actions/auth";
 
 const { Option } = Select;
 const { Title } = Typography;
 const Login = () => {
-  const { getState, dispatch } = useStore();
-  const state = getState();
-  const [loginList, setLoginList] = useState(Object.entries(state["users"]));
+  const dispatch = useDispatch();
+  const users = useSelector((state: any) => state.users);
+  const [loginList, setLoginList] = useState(Object.entries(users));
   useEffect(() => {
-    if (loginList.length === 0) setLoginList(Object.entries(state["users"]));
-  }, [loginList, state]);
+    if (loginList.length === 0) setLoginList(Object.entries(users));
+  }, [loginList, users]);
   const loginUser = (user: string) => {
-    let users = state["users"];
     dispatch(login(users[user]));
   };
   return (
