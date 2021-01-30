@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Description:
+Would you rather is a game to answer and create poll questions. The more polls you answer as well create.
+you get a higher score in the game's leaderboard.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tech Stack
+- TypeScript
+- React
+- Redux ( State Mangement)
+- React Router
+- Immer ( Creating Reducers to returns immutable objects )
+- Ant Design
 
 ## Available Scripts
 
