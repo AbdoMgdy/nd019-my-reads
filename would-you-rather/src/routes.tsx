@@ -14,7 +14,7 @@ const routes = (isLoggedIn: boolean) => [
         element: isLoggedIn ? <PollTabs /> : <Navigate to="/login" />,
       },
       {
-        path: "/new",
+        path: "/add",
         element: isLoggedIn ? <NewPollCard /> : <Navigate to="/login" />,
       },
       {
