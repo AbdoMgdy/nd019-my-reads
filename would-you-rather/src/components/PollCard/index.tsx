@@ -13,7 +13,7 @@ import {
 import { IQuestion, IUser } from "../../store/types";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addAnswerToQuestion } from "../../store/_actions/questions";
+import { addAnswerToQuestion } from "../../store/actions/questions";
 import { addAnswerToUser } from "../../store/actions/users";
 interface PollCardProps {
   question: IQuestion;
@@ -40,6 +40,7 @@ export default function PollCard(props: PollCardProps) {
   }, [mode]);
 
   const answerQuestion = () => {
+    console.log("qid", question.id, "answer", answer, "auth", auth.id);
     dispatch(
       addAnswerToQuestion({ qid: question.id, option: answer, answer: auth.id })
     );

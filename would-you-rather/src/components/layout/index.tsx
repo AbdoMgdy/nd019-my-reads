@@ -27,7 +27,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item key={2}>
-            <Link to="/app/new">New Poll</Link>
+            <Link to="/app/add">New Poll</Link>
           </Menu.Item>
           <Menu.Item key={3}>
             <Link to="/app/leaderboard">Leaderboard</Link>

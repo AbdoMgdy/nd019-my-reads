@@ -5,6 +5,7 @@ import { addQuestion } from "../../store/actions/questions";
 import { v4 as uuidv4 } from "uuid";
 import { IQuestion, IUser } from "../../store/types";
 import { useNavigate } from "react-router-dom";
+import { addQuestionToUser } from "../../store/actions/users";
 const { Title } = Typography;
 export default function NewPollCard() {
   let navigate = useNavigate();
@@ -21,6 +22,7 @@ export default function NewPollCard() {
       optionTwo: { text: optionTwo, votes: [] },
     };
     dispatch(addQuestion(newQuestion));
+    dispatch(addQuestionToUser({ question: newQuestion, user: auth.id }));
     navigate("/app/");
   };
   return (
