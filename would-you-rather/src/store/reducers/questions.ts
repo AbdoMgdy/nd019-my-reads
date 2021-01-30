@@ -18,7 +18,7 @@ const questions = (
         console.log(draft);
         break;
       case QuestionsActionTypes.ADD_QUESTION:
-        draft[action.payload.qid] = action.payload;
+        draft[action.payload.id] = action.payload;
         break;
       default:
         return draft;
