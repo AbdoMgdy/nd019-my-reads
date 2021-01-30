@@ -1,4 +1,4 @@
-import { UsersActions, UsersActionsTypes } from "./../actions/users";
+import { UsersActions, UsersActionsTypes } from "../actions/users";
 import { produce } from "immer";
 import { IUsers } from "../types";
 

@@ -1,4 +1,4 @@
-import { IQuestion, IUsers } from "./../types";
+import { IQuestion, IUsers } from "../types";
 
 export enum UsersActionsTypes {
   RECEIVE_USERS = "RECEIVE_USERS",

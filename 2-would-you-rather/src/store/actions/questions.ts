@@ -1,4 +1,4 @@
-import { IQuesions, IQuestion } from "./../types";
+import { IQuesions, IQuestion } from "../types";
 export enum QuestionsActionTypes {
   RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS ",
   ADD_ANSWER_TO_QUESTION = "ADD_ANSWER_TO_QUESTION ",

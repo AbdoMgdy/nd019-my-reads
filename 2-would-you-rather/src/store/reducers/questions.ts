@@ -1,4 +1,4 @@
-import { QuestionActions, QuestionsActionTypes } from "./../actions/questions";
+import { QuestionActions, QuestionsActionTypes } from "../actions/questions";
 import { produce } from "immer";
 import { IQuesions } from "../types";
 

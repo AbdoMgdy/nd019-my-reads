@@ -1,4 +1,4 @@
-import { AuthActions, AuthActionTypes } from "./../actions/auth";
+import { AuthActions, AuthActionTypes } from "../actions/auth";
 import { produce } from "immer";
 
 const auth = (state: string = "", action: AuthActions) =>
