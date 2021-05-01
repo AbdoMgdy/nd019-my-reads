@@ -5,9 +5,9 @@ you can sort your cards into different decks and you can also quiz your knowledg
 
 ##  Instructions
 
-- Get the code: git clone https://github.com/nicholaspretorius/udacity-mobile-flashcards.git
+- Get the code: clone the repoisitery 
 
-- Change directory: cd udacity-mobile-flashcards
+- Change directory: cd react-nanodegree-projects/3-mobile-flashcards
 
 - Install dependencies: yarn install
 
