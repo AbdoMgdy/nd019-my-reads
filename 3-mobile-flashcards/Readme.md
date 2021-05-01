@@ -3,10 +3,12 @@
 UdaciCards is a react native appliaction to help you make Flash cards and use them to memorize all kinds of information.
 you can sort your cards into different decks and you can also quiz your knowledge
 
-## Available Scripts
+##  Instructions
 
-In the project directory, you can run:
+- Get the code: git clone https://github.com/nicholaspretorius/udacity-mobile-flashcards.git
 
-### `yarn Web`
+- Change directory: cd udacity-mobile-flashcards
 
-Start the app in your browser and if you want to test using Expo Application by scanning QR.
+- Install dependencies: yarn install
+
+- Run the app: yarn web
